@@ -22,6 +22,7 @@ public class SwaggerConfiguration {
                 .useDefaultResponseMessages(false); // status code 200,401,403,404 메시지 표시 x
     }
 
+    //api docs 상세와 작성자 정보 노출
     private ApiInfo apiInfo() {
         return new ApiInfoBuilder().title("CareerManagementSystem api")
                 .description("경력관리시스템 api 문서")
