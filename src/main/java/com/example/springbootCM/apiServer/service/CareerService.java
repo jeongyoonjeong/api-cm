@@ -41,4 +41,12 @@ public class CareerService {
     public Career register(Career career) {
         return careerRepository.save(career);
     }
+
+    public boolean delete(Long car_id, String emp_addr, String auth_addr) {
+        Career career = this.get(car_id);
+        if( !emp_addr.equals(career.getEmp().getAddress()) || !auth_addr.equals(career.getAuth().getAddress())  )
+            throw new RuntimeException();
+        careerRepository.delete(career);
+        return true;
+    }
 }

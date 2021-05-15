@@ -15,32 +15,43 @@ import java.util.Date;
 public class Career {
     @Id
     @Column(name="CAR_ID")
+    @NonNull
     private Long id;
 
     @Column
+    @NonNull
     private String title;
 
 
     @Column
+    @NonNull
     private String summary;
 
     @Column
+    @NonNull
     private Date start_date;
 
     @Column
+    @NonNull
     private Date end_date;
+
+    @Column(columnDefinition="DATE DEFAULT SYSDATE")
+    @NonNull
+    private Date regist_date;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "auth_addr")
+    @NonNull
     private Auth auth; // 경력정보 - 인증계정의 관계 - N:1
 
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "emp_addr")
+    @NonNull
     private Emp emp;  // 경력정보 - 근로자계정의 관계 - N:1
 
 
-    // 생성자
+    // 생성자;.
     public Career(Emp emp, Auth auth, String title, String summary) {
         this.emp = emp;
         this.auth = auth;

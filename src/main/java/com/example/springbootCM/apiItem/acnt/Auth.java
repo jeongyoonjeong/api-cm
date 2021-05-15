@@ -19,6 +19,8 @@ import java.util.Date;
 public class Auth{
 
     @Id
+    @NonNull
     private String address;
+
     private String name;
 }

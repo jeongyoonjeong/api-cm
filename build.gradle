@@ -19,13 +19,14 @@ repositories {
 }
 
 dependencies {
+	implementation 'io.springfox:springfox-swagger2:2.6.1'
+	implementation 'io.springfox:springfox-swagger-ui:2.6.1'
 	implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
 	implementation 'org.springframework.boot:spring-boot-starter-web'
-	implementation 'org.springframework.boot:spring-boot-starter-webflux'
+	runtimeOnly 'org.springframework.boot:spring-boot-starter-tomcat'
 	compileOnly 'org.projectlombok:lombok'
 	annotationProcessor 'org.projectlombok:lombok'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
-	testImplementation 'io.projectreactor:reactor-test'
 	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
 	runtimeOnly 'com.h2database:h2'
 }

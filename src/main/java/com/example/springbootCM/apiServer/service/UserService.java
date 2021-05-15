@@ -17,17 +17,15 @@ public class UserService {
         this.repository = repository;
     }
 
-
-//    추후에 spring security로 업데이트
-    //로그인
+//로그인
+//추후에 spring security로 업데이트
     public User userCheck(User user) {
         return repository
                 .findByUserId(user.getUserid())
                 .orElse(User.builder().build());
     }
 
-
-    // 가입
+//가입
     public User dupliacateUserCheck(String userID) {
         return repository
                 .findByUserId(userID)

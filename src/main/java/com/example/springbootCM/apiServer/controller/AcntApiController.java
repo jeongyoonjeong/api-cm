@@ -4,11 +4,13 @@ import com.example.springbootCM.apiItem.acnt.User;
 import com.example.springbootCM.apiServer.ApiAdapter;
 import com.example.springbootCM.apiServer.UserResponse;
 import com.example.springbootCM.apiServer.service.UserService;
+import io.swagger.annotations.Api;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 import java.util.List;
 
+@Api(tags = {"User"})
 @RestController
 @RequestMapping("/user/")
 public class AcntApiController {
