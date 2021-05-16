@@ -39,6 +39,9 @@ public class Career {
     @NonNull
     private Date regist_date;
 
+    @Column(name="DELETE_AT")
+    private String deleteAt = "N";
+
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "auth_addr")
     @NonNull
@@ -69,7 +72,7 @@ public class Career {
     }
 
     // 수정시 데이터 처리
-    public Career setUpdateCareer(Emp emp, Auth auth, String title, String summary, Date start_date, Date end_date) {
+    public Career setUpdateCareer(Emp emp, Auth auth, String title, String summary, @NonNull Date startDate, Date start_date, Date end_date, @NonNull String delete_at) {
         this.emp = emp;
         this.auth = auth;
         this.title = title;
