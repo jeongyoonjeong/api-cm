@@ -8,5 +8,6 @@ import java.util.List;
 @RequiredArgsConstructor
 public abstract class ApiResponse<T> {
     @NonNull private T data;
+    private String token;
     private List<String> errors;
 }

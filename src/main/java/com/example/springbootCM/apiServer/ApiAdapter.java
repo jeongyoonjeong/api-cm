@@ -5,9 +5,9 @@ import com.example.springbootCM.apiItem.acnt.User;
 import java.util.List;
 
 public class ApiAdapter {
-    public static UserResponse toEmpResponse(final User userInfo, final List<String> errors) {
+    public static UserResponse toEmpResponse(final User userInfo, final String jwtToken, final List<String> errors) {
         return UserResponse.builder()
-                .data(userInfo)
+                .user(userInfo)
                 .errors(errors)
                 .build();
     }

@@ -1,6 +1,7 @@
 package com.example.springbootCM.apiServer.repository;
 
 import com.example.springbootCM.apiItem.acnt.User;
+import org.springframework.security.core.userdetails.UserDetails;
 
 import javax.persistence.EntityManager;
 import java.util.Optional;
@@ -16,9 +17,16 @@ public class UserRepository {
         User userInfo = em.find(User.class , id);
         return Optional.ofNullable(userInfo);
     }
+//    public Optional<User> findByUserId(String userId) {
+//        return Optional.ofNullable(
+//                em.createQuery("select u from User u where u.userid = :userId", User.class)
+//                .setParameter("userId",userId )
+//                .getResultList()
+//                .get(0));
+//    }
     public Optional<User> findByUserId(String userId) {
         return Optional.ofNullable(
-                em.createQuery("select u from User u where u.userid = :userId", User.class)
+                em.createQuery("select u from User u where u.userId = :userId", User.class)
                 .setParameter("userId",userId )
                 .getResultList()
                 .get(0));
