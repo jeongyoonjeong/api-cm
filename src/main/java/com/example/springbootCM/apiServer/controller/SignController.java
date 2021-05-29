@@ -31,15 +31,7 @@ public class SignController {
 
     @ApiOperation(value="회원 가입", notes = "가입화면에서 회원 정보 생성")
     @PostMapping("signup")
-    public @ResponseBody UserResponse signup
-            (
-                    @RequestBody User paramUser
-//            @RequestParam final String address,
-//             @RequestParam final String userId,
-//             @RequestParam final String userPw,
-//             @RequestParam final String role,
-//             @RequestParam final String name
-             ) {
+    public @ResponseBody UserResponse signup(@RequestBody User paramUser) {
         List<String> errors = new ArrayList<>();
         UserDetails user = service.register(User.builder()
                                 .address(paramUser.getAddress())
