@@ -40,7 +40,7 @@ public class SignController {
                                 .role(paramUser.getRole())
                                 .name(paramUser.getName())
                             .build());
-        return ApiAdapter.toEmpResponse((User) user,"",errors);
+        return ApiAdapter.toUserResponse((User) user,"",errors);
     }
 
     @ApiOperation(value="회원 로그인", notes = "로그인화면에서 회원 로그인")
@@ -49,6 +49,6 @@ public class SignController {
         List<String> errors = new ArrayList<>();
         User user = service.getUserByUserId(param.get("userId"));
         if(!passwordEncoder.matches(param.get("userPw"), user.getUserPw())) throw new Exception();
-        return ApiAdapter.toEmpResponse(user, jwtTokenProvider.createToken(user.getUserId(),user.getRole()), errors);
+        return ApiAdapter.toUserResponse(user, jwtTokenProvider.createToken(user.getUserId(),user.getRole()), errors);
     }
 }

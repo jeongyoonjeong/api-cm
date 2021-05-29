@@ -10,8 +10,13 @@ public class UserResponse extends ApiResponse<User>{
 
     @Builder
     public UserResponse(User user, String token, final List<String> errors) {
-//      응답데이터를 캡슐화 할 때, 여기서 데이터를 복사 붙여넣기
-        super(user);
+        //id, userPw 생략
+        super(User.builder()
+                .address(user.getAddress())
+                .userId(user.getUserId())
+                .name(user.getName())
+                .role(user.getRole())
+                .build());
         this.setToken(token);
         this.setErrors(errors);
     }
