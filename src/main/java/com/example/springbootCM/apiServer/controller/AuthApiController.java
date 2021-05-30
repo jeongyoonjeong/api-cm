@@ -3,6 +3,7 @@ package com.example.springbootCM.apiServer.controller;
 import com.example.springbootCM.apiItem.acnt.Auth;
 import com.example.springbootCM.apiServer.service.AuthService;
 import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiImplicitParam;
 import io.swagger.annotations.ApiOperation;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,6 +28,7 @@ public class AuthApiController {
         this.authService = authService;
     }
 
+    @ApiImplicitParam(name = "X-AUTH-TOKEN", value = "로그인 성공 후 발급되는 jwt", required = true, dataType = "String", paramType = "header")
     @ApiOperation(value="전체 인증자 조회", notes="전체 인증자 address 정보 조회")
     @GetMapping(path = "/all")
     public List<Auth> findAll(){
