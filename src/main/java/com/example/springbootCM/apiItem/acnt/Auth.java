@@ -8,7 +8,7 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 import java.util.Date;
 
-//@EqualsAndHashCode(callSuper = true)
+
 @JsonIgnoreProperties({"hibernateLazyInitializer"})
 @Data
 @Entity

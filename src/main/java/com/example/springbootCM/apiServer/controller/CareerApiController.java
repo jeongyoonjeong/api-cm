@@ -70,7 +70,7 @@ public class CareerApiController {
             @PathVariable String emp_addr,
             @PathVariable String auth_addr
     ) {
-        return careerService.delete(car_id,emp_addr,auth_addr);
+        return careerService.deleteCareer(car_id,emp_addr,auth_addr);
     }
 
 }

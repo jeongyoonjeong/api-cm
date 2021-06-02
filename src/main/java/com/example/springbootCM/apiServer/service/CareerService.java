@@ -28,7 +28,7 @@ public class CareerService {
     }
 
     public Career get(final Long car_id) {
-        return careerRepository.findById(car_id).get();
+        return careerRepository.findByIdAndDeleteAt(car_id,"N").get();
     }
 
     public List<Career> findByAuth(final String auth_addr) {
@@ -55,22 +55,16 @@ public class CareerService {
                 paramCareer.getSummary(),
                 paramCareer.getStart_date(),
                 paramCareer.getEnd_date(),
-                paramCareer.getRegist_date(),
                 paramCareer.getDeleteAt()
                 );
         return careerRepository.save(career);
     }
 
-//    public Career updateDeleteStatus(Career career){
-//        return careerRepository.updateDeleteat(career.getEmp().getAddress(),career.getId());    }
-
-
-    //todo. delete > update delete_at = 'Y'로 바꾸기
-    public boolean delete(Long car_id, String emp_addr, String auth_addr) {
+    public boolean deleteCareer(Long car_id, String emp_addr, String auth_addr) {
         Career career = this.get(car_id);
         if( !emp_addr.equals(career.getEmp().getAddress()) || !auth_addr.equals(career.getAuth().getAddress())  )
             throw new RuntimeException();
-        careerRepository.delete(career);
+        careerRepository.save(career.setDeleteCareer());
         return true;
     }
 }

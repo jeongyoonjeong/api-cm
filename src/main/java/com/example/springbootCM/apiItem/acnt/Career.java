@@ -72,13 +72,22 @@ public class Career {
     }
 
     // 수정시 데이터 처리
-    public Career setUpdateCareer(Emp emp, Auth auth, String title, String summary, @NonNull Date startDate, Date start_date, Date end_date, @NonNull String delete_at) {
+    public Career setUpdateCareer(
+            Emp emp, Auth auth,
+            String title, String summary, Date start_date, Date end_date, String delete_at) {
         this.emp = emp;
         this.auth = auth;
         this.title = title;
         this.summary = summary;
         this.start_date = start_date;
         this.end_date = end_date;
+        this.deleteAt = delete_at;
+        return this;
+    }
+
+    // 데이터 delete 처리
+    public Career setDeleteCareer() {
+        this.deleteAt = "Y";
         return this;
     }
 }
